@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards - CoderTec</title>
+    <link rel="stylesheet" href="../../static/css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/889104c503.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header"></div>
+    <script src="../../static/js/include.js"></script>
+    <script>includeHTML();</script>
+
+    <!-- Conteúdo principal -->
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Dashboards que Colocam sua Empresa na Sua Tela</h1>
+        <p class="text-center">Monitore métricas-chave em tempo real, visualize dados de forma clara e tome decisões ágeis.</p>
+
+        <!-- Cards de Dashboards -->
+        <div class="row g-4 mt-5">
+
+            <!-- Card 1 -->
+            <div class="col-md-6">
+                <div class="card p-3 shadow-sm">
+                    <h3 class="pt-3 pb-2"><i class="bi bi-bar-chart"></i> Dashboard Financeiro</h3>
+                    <p class="text_card">Acompanhe receitas, despesas e lucros em tempo real com gráficos interativos e relatórios automáticos.</p>
+                    <p class="text-center">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#financeModal">
+                            Veja exemplo
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6">
+                <div class="card p-3 shadow-sm">
+                    <h3 class="pt-3 pb-2"><i class="bi bi-graph-up-arrow"></i> Dashboard de Vendas</h3>
+                    <p class="text_card">Visualize performance de vendas, produtos mais vendidos e comportamento de clientes com dashboards dinâmicos.</p>
+                    <p class="text-center">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#salesModal">
+                            Veja exemplo
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal 1: Dashboard Financeiro -->
+    <div class="modal fade" id="financeModal" tabindex="-1" aria-labelledby="financeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="financeModalLabel">Exemplo de Dashboard Financeiro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Exemplo de dashboard financeiro com gráficos fictícios.</p>
+                    <canvas id="financeChart"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Dashboard de Vendas -->
+    <div class="modal fade" id="salesModal" tabindex="-1" aria-labelledby="salesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="salesModalLabel">Exemplo de Dashboard de Vendas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Exemplo de dashboard de vendas mostrando produtos, vendas e performance fictícia.</p>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/js/include.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Gráfico Dashboard Financeiro
+        const financeCtx = document.getElementById('financeChart').getContext('2d');
+        new Chart(financeCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                datasets: [{
+                    label: 'Receita',
+                    data: [5000, 7000, 6500, 7200, 8000, 8500],
+                    borderColor: '#3782cc',
+                    backgroundColor: 'rgba(55,130,204,0.2)',
+                    fill: true,
+                    tension: 0.3
+                },{
+                    label: 'Despesa',
+                    data: [3000, 3500, 3200, 4000, 3800, 3900],
+                    borderColor: '#cc5533',
+                    backgroundColor: 'rgba(204,85,51,0.2)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            }
+        });
+
+        // Gráfico Dashboard de Vendas
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Produto A', 'Produto B', 'Produto C', 'Produto D'],
+                datasets: [{
+                    label: 'Vendas',
+                    data: [120, 150, 100, 180],
+                    backgroundColor: '#3782cc'
+                }]
+            }
+        });
+    </script>
+
+</body>
+</html>

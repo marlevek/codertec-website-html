@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://codertec.com.br/</loc>
+    <lastmod>2025-10-22</lastmod>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://codertec.com.br/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/" />
+  </url>
+
+  <!-- Sobre mim -->
+  <url>
+    <loc>https://codertec.com.br/sobre-mim.html</loc>
+    <lastmod>2025-10-22</lastmod>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://codertec.com.br/sobre-mim.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/sobre-mi.html" />
+  </url>
+
+  <!-- Serviços -->
+  <url>
+    <loc>https://codertec.com.br/servicos/desenvolvimento-web/</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://codertec.com.br/servicos/desenvolvimento-web/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/servicios/desarrollo-web/" />
+  </url>
+
+  <url>
+    <loc>https://codertec.com.br/servicos/ciencia-de-dados/</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://codertec.com.br/servicos/ciencia-de-dados/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/servicios/ciencia-de-datos/" />
+  </url>
+
+  <url>
+    <loc>https://codertec.com.br/servicos/dashboards/</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://codertec.com.br/servicos/dashboards/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/servicios/dashboards/" />
+  </url>
+
+  <url>
+    <loc>https://codertec.com.br/servicos/automacao/</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://codertec.com.br/servicos/automacao/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/servicios/automatizacion/" />
+  </url>
+
+  <url>
+    <loc>https://codertec.com.br/servicos/inteligencia-artificial/</loc>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-br" href="https://codertec.com.br/servicos/inteligencia-artificial/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/servicios/inteligencia-artificial/" />
+  </url>
+
+
+<url>
+  <loc>https://codertec.com.br/solucoes/agentes-ia/</loc>
+  <priority>0.80</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://codertec.com.br/solucoes/agentes-ia/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/soluciones/agentes-ia/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://codertec.com.br/solucoes/agentes-ia/"/>
+</url>
+
+<url>
+  <loc>https://codertec.com.br/solucoes/webapps/</loc>
+  <priority>0.80</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://codertec.com.br/solucoes/webapps/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/soluciones/webapps/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://codertec.com.br/solucoes/webapps/"/>
+</url>
+
+<url>
+  <loc>https://codertec.com.br/solucoes/websites/</loc>
+  <priority>0.80</priority>
+  <xhtml:link rel="alternate" hreflang="pt-BR" href="https://codertec.com.br/solucoes/websites/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/soluciones/websites/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://codertec.com.br/solucoes/websites/"/>
+</url>
+
+  <!-- Páginas de agradecimento -->
+  <url>
+    <loc>https://codertec.com.br/obrigado.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://codertec.com.br/es/gracias.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

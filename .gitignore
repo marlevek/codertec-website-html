@@ -1,0 +1,24 @@
+# SO
+Thumbs.db
+Desktop.ini
+
+# IDEs/Editor
+.vscode/
+.idea/
+
+# Logs / cache
+*.log
+*.tmp
+.cache/
+node_modules/
+dist/
+build/
+
+# Secrets comuns
+.env
+.env.*
+*.pem
+*.key
+
+# Uploads temporários (se houver)
+uploads/tmp/

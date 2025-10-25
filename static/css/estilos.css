@@ -1,0 +1,178 @@
+body { background-color: #f8f9fa; color: #212529; }
+.navbar { background-color: #c1d7ec; }
+.navbar-brand, .nav-link { color: #002244 !important; }
+.btn-primary { background-color: #3782cc; border: none; }
+.btn-primary:hover { background-color: #002244; }
+.footer { background-color: #052441; color: #cedff0; padding: 10px 0; text-align: center; }
+p {font-size: large;}
+.text_bold{font-weight: bold;}
+li{line-height: 2.5em;}
+.bi{color: #3782cc;}
+.bi-instagram{font-size: 1.5em; color: #cedff0;}
+.text_card{padding-left: 1.5em;}
+.instagram a, a:link, a:visited, a:active{color:#cedff0}
+.card-title{font-size: larger; font-weight: bolder;}
+.titulos, .titulos * {font-size: 2em !important; font-weight: bold !important;}
+
+
+/* Estilos botão voltar ao topo */
+#btnVoltarAoTopo {
+    display: none; /* Oculta o botão inicialmente */
+    position: fixed; /* Fixa o botão na tela */
+    bottom: 20px; /* Distância do fundo */
+    right: 20px; /* Distância da direita */
+    z-index: 99; /* Garante que o botão fique acima de outros elementos */
+    border: none; /* Remove borda */
+    outline: none; /* Remove contorno */
+    background-color: #021830; /* Cor de fundo */
+    color: white; /* Cor do ícone */
+    cursor: pointer; /* Muda o cursor para pointer */
+    padding: 10px; /* Espaçamento interno */
+    border-radius: 50%; /* Deixa o botão redondo */
+    font-size: 24px; /* Tamanho do ícone */
+    transition: background-color 0.3s; /* Efeito de transição suave */
+}
+
+#btnVoltarAoTopo:hover {
+    background-color: #0056b3; /* Muda a cor ao passar o mouse */
+}
+
+
+/* Estilos para botão whatsapp*/
+.whatsapp-float {
+    position: fixed;
+    bottom: 90px;
+    right: 15px;
+    z-index: 1000;
+}
+
+.whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.servico-container {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.hero-servico {
+    text-align: center;
+    background: linear-gradient(120deg, #004aad, #00aaff);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.hero-servico h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.conteudo-servico h2 {
+    color: #004aad;
+    margin-top: 20px;
+}
+
+.conteudo-servico ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.conteudo-servico li::before {
+    content: "✔ ";
+    color: #00aaff;
+}
+
+.botao {
+    display: inline-block;
+    background: #004aad;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #0077ff;
+}
+
+.servico-destaque img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 30px;
+}
+
+
+.certificado-img {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.certificado-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.img-sobre {
+  max-width: 220px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .img-sobre {
+    max-width: 150px;
+  }
+}
+
+section h2 {
+    color: #004aad;
+    font-weight: bold;
+}
+
+section p {
+    line-height: 1.6em;
+}
+
+section img {
+    transition: transform .3s ease;
+}
+
+section img:hover {
+    transform: scale(1.03);
+}
+
+img.shadow-sm:hover {
+  transform: scale(1.03);
+  transition: 0.3s ease;
+}
+
+
+

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desenvolvimento Web | CoderTec</title>
+
+    <!-- Bootstrap e CSS -->
+    <link href="/static/css/estilos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="/static/js/include.js" defer></script>
+</head>
+
+<body>
+    <!-- Cabeçalho dinâmico -->
+    <div id="header"></div>
+
+    <!-- Seção Sobre o Serviço -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="mb-4">O que fazemos</h2>
+            <p>Na CoderTec, criamos sites sob medida para pequenas empresas que desejam presença digital moderna e
+                eficiente. Utilizamos tecnologias como Django, Bootstrap e automações inteligentes.</p>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4 mt-3">
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-window"></i> Sites institucionais e landing pages
+                            </h5>
+                            <p class="card-text">Criação de sites institucionais, páginas de captura e landing pages
+                                otimizadas para conversão e responsividade.</p>
+                            <!-- Texto guia -->
+                            <p class="mt-3 mb-2"><strong>Veja exemplo:</strong></p>
+
+                            <!-- Botões -->
+                            <a href="https://www.climatis.com.br" target="_blank"
+                                class="btn btn-primary btn-sm me-2">Visitar Site Climatis</a>
+                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#modalLanding">
+                                Ver Landing Page
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-speedometer2"></i> Aplicações web com painéis
+                                administrativos</h5>
+                            <p class="card-text">Desenvolvimento de sistemas web internos, dashboards e ferramentas
+                                administrativas para gestão eficiente.</p>
+                            <button type="button" class="btn btn-primary btn-sm mt-2" data-bs-toggle="modal"
+                                data-bs-target="#dashboardModal">
+                                Ver exemplo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-box-arrow-in-up-right"></i> Integração com APIs e
+                                sistemas internos</h5>
+                            <p class="card-text">Integramos seus sistemas e APIs para automatizar processos e
+                                sincronizar informações de forma segura.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="bi bi-search"></i> SEO e otimização de performance</h5>
+                            <p class="card-text">Sites otimizados para SEO, carregamento rápido e melhor experiência do
+                                usuário, aumentando conversões.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="/index.html#contato" class="btn btn-warning btn-lg">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé dinâmico -->
+    <div id="footer"></div>
+
+   <!-- Modal para exemplo de Landing Page -->
+<div class="modal fade" id="modalLanding" tabindex="-1" aria-labelledby="modalLandingLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalLandingLabel">Exemplo de Landing Page</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <iframe src="/demos/django/sites-institucionais/index.html" width="100%" height="400px" style="border:none;"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal exemplo painel adm -->
+<div class="modal fade" id="dashboardModal" tabindex="-1" aria-labelledby="dashboardModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="dashboardModalLabel">Aplicação Web: Painel Administrativo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Exemplo de dashboard para monitoramento de métricas e dados de uma empresa ou clínica.</p>
+
+        <!-- Cards de Métricas -->
+        <div class="row g-3 mb-4">
+          <div class="col-md-3">
+            <div class="card text-center p-3 shadow-sm">
+              <h6>Total de Usuários</h6>
+              <h3>125</h3>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-center p-3 shadow-sm">
+              <h6>Novos Clientes</h6>
+              <h3>23</h3>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-center p-3 shadow-sm">
+              <h6>Receita Mensal</h6>
+              <h3>R$ 18.400</h3>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card text-center p-3 shadow-sm">
+              <h6>Ordens de Serviço</h6>
+              <h3>56</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gráficos -->
+        <div class="row g-4">
+          <div class="col-md-6">
+            <canvas id="revenueChart"></canvas>
+          </div>
+          <div class="col-md-6">
+            <canvas id="tasksChart"></canvas>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+  const revenueChart = new Chart(revenueCtx, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+      datasets: [{
+        label: 'Receita Mensal',
+        data: [12000, 15000, 14000, 18000, 17000, 18400],
+        borderColor: '#3782cc',
+        backgroundColor: 'rgba(55,130,204,0.2)',
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: true, position: 'top' },
+        title: { display: true, text: 'Receita Mensal' }
+      }
+    }
+  });
+
+  const tasksCtx = document.getElementById('tasksChart').getContext('2d');
+  const tasksChart = new Chart(tasksCtx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Concluídas', 'Em Andamento', 'Pendentes'],
+      datasets: [{
+        data: [30, 15, 11],
+        backgroundColor: ['#3782cc','#002244','#c1d7ec']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: true, position: 'bottom' },
+        title: { display: true, text: 'Status das Ordens de Serviço' }
+      }
+    }
+  });
+</script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

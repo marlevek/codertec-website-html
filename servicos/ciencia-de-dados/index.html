@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciência de Dados - CoderTec</title>
+    <link rel="stylesheet" href="../../static/css/estilos.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/889104c503.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div id="header"></div>
+    <script src="../../static/js/include.js"></script>
+    <script>includeHTML();</script>
+
+    <!-- Conteúdo principal -->
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Ciência de Dados para Decisões Estratégicas</h1>
+        <p class="text-center">Transforme seus dados em decisões inteligentes com análises preditivas, dashboards e
+            insights estratégicos.</p>
+
+        <!-- Cards de serviços de Ciência de Dados -->
+        <div class="row g-4 mt-5">
+
+            <!-- Card 1 -->
+            <div class="col-md-6">
+                <div class="card p-3 shadow-sm">
+                    <h3 class="pt-3 pb-2"><i class="bi bi-bar-chart-line"></i> Análises Preditivas</h3>
+                    <p class="text_card">Preveja tendências, identifique padrões e antecipe resultados para tomar decisões
+                        mais assertivas.</p>
+                    <p class="text-center">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#predictiveModal">
+                            Veja exemplo
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-6">
+                <div class="card p-3 shadow-sm">
+                    <h3 class="pt-3 pb-2"><i class="bi bi-graph-up-arrow"></i> Modelos de Machine Learning</h3>
+                    <p class="text_card">Transforme dados brutos em modelos inteligentes para otimizar processos e
+                        prever resultados futuros.</p>
+                    <p class="text-center">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mlModal">
+                            Veja exemplo
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal 1: Análises Preditivas -->
+    <div class="modal fade" id="predictiveModal" tabindex="-1" aria-labelledby="predictiveModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="predictiveModalLabel">Exemplo de Análise Preditiva</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Exemplo de análise preditiva com gráficos e insights fictícios.</p>
+
+                    <canvas id="predictiveChart"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Modelos de ML -->
+    <div class="modal fade" id="mlModal" tabindex="-1" aria-labelledby="mlModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mlModalLabel">Exemplo de Modelos de Machine Learning</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Exemplo de dashboard com resultados de modelo de machine learning fictício.</p>
+                    <canvas id="mlChart"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/js/include.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Gráfico Análises Preditivas
+        const predictiveCtx = document.getElementById('predictiveChart').getContext('2d');
+        new Chart(predictiveCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+                datasets: [{
+                    label: 'Vendas previstas',
+                    data: [120, 150, 140, 160, 180, 200],
+                    borderColor: '#3782cc',
+                    backgroundColor: 'rgba(55,130,204,0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            }
+        });
+
+        // Gráfico Modelos ML
+        const mlCtx = document.getElementById('mlChart').getContext('2d');
+        new Chart(mlCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Produto A', 'Produto B', 'Produto C', 'Produto D'],
+                datasets: [{
+                    label: 'Precisão do Modelo (%)',
+                    data: [85, 78, 92, 88],
+                    backgroundColor: '#3782cc'
+                }]
+            }
+        });
+    </script>
+
+</body>
+</html>
