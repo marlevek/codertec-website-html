@@ -1,13 +1,19 @@
-document.addEventListener("DOMContentLoaded", function () {
+// /static/js/chatbot.js
+(function initChatbotWrapper() {
+  console.log("🤖 [Chatbot] Script carregado — aguardando elementos...");
+
   const interval = setInterval(() => {
     const chatBtn = document.getElementById("chatbot-btn");
-    if (!chatBtn) return;
+    if (!chatBtn) return; // ainda não injetou o chatbot.html
 
     clearInterval(interval);
+    console.log("✅ [Chatbot] Elementos detectados, iniciando chatbot...");
     initChatbot();
   }, 200);
 
   function initChatbot() {
+    // 🔹 Definição de todos os elementos do chatbot (incluindo o botão)
+    const chatBtn = document.getElementById("chatbot-btn");
     const chatWindow = document.getElementById("chatbot-window");
     const chatMessages = document.getElementById("chatbot-messages");
     const chatInput = document.getElementById("chatbot-input");
@@ -15,8 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const chatClose = document.getElementById("chatbot-close");
     const chatClear = document.getElementById("chatbot-clear");
 
-   const API_URL = "https://web-production-6e4b.up.railway.app/api/chat/";
-
+    const API_URL = "https://web-production-6e4b.up.railway.app/api/chat/";
     const context = window.CHATBOT_CONTEXT || "geral";
 
     let greeted = false;
@@ -24,12 +29,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let businessType = localStorage.getItem("codertec_business_type") || "";
     let step = localStorage.getItem("codertec_step") || "start";
 
+    // 🔊 Sons de envio e resposta
     const soundSend = new Audio("/static/sounds/send.mp3");
     const soundReceive = new Audio("/static/sounds/receive.mp3");
 
     loadChatHistory();
 
-    document.getElementById("chatbot-btn").addEventListener("click", () => {
+    // 🔘 Botão abre/fecha chat
+    chatBtn.addEventListener("click", () => {
       chatWindow.style.display =
         chatWindow.style.display === "flex" ? "none" : "flex";
 
@@ -56,8 +63,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // ❌ Fecha o chat
     chatClose.addEventListener("click", () => (chatWindow.style.display = "none"));
 
+    // 🗑️ Nova conversa
     if (chatClear) {
       chatClear.addEventListener("click", () => {
         localStorage.clear();
@@ -71,11 +80,13 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
+    // 📨 Envio de mensagens
     chatSend.addEventListener("click", sendMessage);
     chatInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") sendMessage();
     });
 
+    // 💬 Exibe mensagens
     function appendMessage(text, sender) {
       const msgContainer = document.createElement("div");
       msgContainer.classList.add("message-container", sender);
@@ -111,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
       (sender === "user" ? soundSend : soundReceive).play();
     }
 
+    // 🚀 Envia a mensagem para a API
     async function sendMessage() {
       const text = chatInput.value.trim();
       if (text === "") return;
@@ -146,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // 💬 Fluxo inteligente com gênero
+    // 🧠 Fluxo de conversa com gênero
     function handleCustomFlow(userText) {
       const lower = userText.toLowerCase();
 
@@ -260,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return false;
     }
 
+    // 💾 Histórico
     function saveChatHistory() {
       localStorage.setItem("codertec_chat_history", chatMessages.innerHTML);
     }
@@ -269,4 +282,4 @@ document.addEventListener("DOMContentLoaded", function () {
       if (saved) chatMessages.innerHTML = saved;
     }
   }
-});
+})();
