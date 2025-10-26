@@ -1,18 +1,18 @@
 // /static/js/chatbot.js
-(function initChatbotWrapper() {
+(function () {
   console.log("🤖 [Chatbot] Script carregado — aguardando elementos...");
 
-  const interval = setInterval(() => {
-    const chatBtn = document.getElementById("chatbot-btn");
-    if (!chatBtn) return; // ainda não injetou o chatbot.html
-
-    clearInterval(interval);
-    console.log("✅ [Chatbot] Elementos detectados, iniciando chatbot...");
-    initChatbot();
+  // ⏳ Aguarda até o chatbot HTML ser injetado
+  const waitForElements = setInterval(() => {
+    if (document.getElementById("chatbot-btn") && document.getElementById("chatbot-window")) {
+      clearInterval(waitForElements);
+      console.log("✅ [Chatbot] Elementos detectados, iniciando chatbot...");
+      initChatbot();
+    }
   }, 200);
 
   function initChatbot() {
-    // 🔹 Definição de todos os elementos do chatbot (incluindo o botão)
+    // 🔹 Todos os elementos DOM do chatbot
     const chatBtn = document.getElementById("chatbot-btn");
     const chatWindow = document.getElementById("chatbot-window");
     const chatMessages = document.getElementById("chatbot-messages");
@@ -20,6 +20,11 @@
     const chatSend = document.getElementById("chatbot-send");
     const chatClose = document.getElementById("chatbot-close");
     const chatClear = document.getElementById("chatbot-clear");
+
+    if (!chatBtn || !chatWindow) {
+      console.error("❌ [Chatbot] Elementos não encontrados no DOM!");
+      return;
+    }
 
     const API_URL = "https://web-production-6e4b.up.railway.app/api/chat/";
     const context = window.CHATBOT_CONTEXT || "geral";
@@ -29,16 +34,15 @@
     let businessType = localStorage.getItem("codertec_business_type") || "";
     let step = localStorage.getItem("codertec_step") || "start";
 
-    // 🔊 Sons de envio e resposta
     const soundSend = new Audio("/static/sounds/send.mp3");
     const soundReceive = new Audio("/static/sounds/receive.mp3");
 
     loadChatHistory();
 
-    // 🔘 Botão abre/fecha chat
+    // 🔘 Abre e fecha chat
     chatBtn.addEventListener("click", () => {
-      chatWindow.style.display =
-        chatWindow.style.display === "flex" ? "none" : "flex";
+      const isVisible = chatWindow.style.display === "flex";
+      chatWindow.style.display = isVisible ? "none" : "flex";
 
       const hasHistory = chatMessages.children.length > 0;
       if (!hasHistory && !greeted) {
@@ -63,10 +67,8 @@
       }
     });
 
-    // ❌ Fecha o chat
     chatClose.addEventListener("click", () => (chatWindow.style.display = "none"));
 
-    // 🗑️ Nova conversa
     if (chatClear) {
       chatClear.addEventListener("click", () => {
         localStorage.clear();
@@ -80,13 +82,11 @@
       });
     }
 
-    // 📨 Envio de mensagens
     chatSend.addEventListener("click", sendMessage);
     chatInput.addEventListener("keypress", (e) => {
       if (e.key === "Enter") sendMessage();
     });
 
-    // 💬 Exibe mensagens
     function appendMessage(text, sender) {
       const msgContainer = document.createElement("div");
       msgContainer.classList.add("message-container", sender);
@@ -122,7 +122,6 @@
       (sender === "user" ? soundSend : soundReceive).play();
     }
 
-    // 🚀 Envia a mensagem para a API
     async function sendMessage() {
       const text = chatInput.value.trim();
       if (text === "") return;
@@ -152,13 +151,12 @@
 
         if (data.reply) appendMessage(data.reply, "bot");
         else appendMessage("Desculpe, não consegui entender 😅", "bot");
-      } catch (error) {
+      } catch {
         typingMsg.remove();
         appendMessage("❌ Erro ao se conectar com o servidor.", "bot");
       }
     }
 
-    // 🧠 Fluxo de conversa com gênero
     function handleCustomFlow(userText) {
       const lower = userText.toLowerCase();
 
@@ -272,7 +270,6 @@
       return false;
     }
 
-    // 💾 Histórico
     function saveChatHistory() {
       localStorage.setItem("codertec_chat_history", chatMessages.innerHTML);
     }
