@@ -1,6 +1,6 @@
 🧑‍💻 CoderTec — Websites, Automação & Inteligência Artificial
 
-Este é o repositório do website institucional da CoderTec, empresa especializada em soluções digitais para Profissionais de Saúde, pequenas e médias empresas, incluindo:
+Este é o repositório do website institucional da CoderTec, empresa especializada em soluções digitais para Profissionais da Saúde, pequenas e médias empresas, incluindo:
 
 Desenvolvimento de Websites Profissionais
 
