@@ -1,0 +1,17 @@
+User-agent: *
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /blog/wp-admin/
+Disallow: /blog/wp-login.php
+Disallow: /blog/?s=
+Disallow: /search
+Disallow: /*?s=
+Disallow: /*/?s=
+Disallow: /*/feed/
+Disallow: /*/feeds/
+Disallow: /*/amp/
+
+Allow: /wp-admin/admin-ajax.php
+
+Sitemap: https://codertec.com.br/sitemap.xml
+Sitemap: https://codertec.com.br/blog/sitemaps.xml

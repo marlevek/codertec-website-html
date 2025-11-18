@@ -3,38 +3,36 @@
   try {
     console.log("💬 [Loader] Iniciando carregamento do chatbot...");
 
-    // Caminho absoluto (funciona em todas as páginas)
-    const basePath = "/static/components/chatbot.html";
-    console.log("📂 [Loader] Carregando chatbot de:", basePath);
+    // Detectar idioma global
+    const path = window.location.pathname.toLowerCase();
+    window.CHATBOT_LANG = path.includes("/en/") ? "en" : "pt";
 
+    console.log("🌎 [Loader] Idioma detectado:", window.CHATBOT_LANG);
+
+    const basePath = "/static/components/chatbot.html";
     const res = await fetch(basePath);
+
     if (!res.ok) throw new Error(`Erro ao carregar chatbot.html (${res.status})`);
 
     const html = await res.text();
-
-    // Injeta o HTML do chatbot no final do body
     document.body.insertAdjacentHTML("beforeend", html);
     console.log("✅ [Loader] Chatbot HTML injetado com sucesso.");
 
-    // Define o contexto da página (ex: automação, IA, etc.)
-    const path = window.location.pathname.toLowerCase();
-    let pageContext = "geral";
-    if (path.includes("inteligencia-artificial") || path.includes("ia"))
-      pageContext = "inteligência artificial";
-    else if (path.includes("automacao"))
-      pageContext = "automação";
-    else if (path.includes("dashboards"))
-      pageContext = "dashboards";
-    else if (path.includes("desenvolvimento-web") || path.includes("site"))
-      pageContext = "desenvolvimento web";
-    else if (path.includes("contato"))
-      pageContext = "contato";
+    // Detecta contexto da página
+    let detectedContext = "general";
 
-    window.CHATBOT_CONTEXT = pageContext;
+    if (path.includes("automation") || path.includes("automacao"))
+      detectedContext = "automation";
+    else if (path.includes("dash"))
+      detectedContext = "dashboards";
+    else if (path.includes("ai") || path.includes("inteligencia"))
+      detectedContext = "ai";
+    else if (path.includes("web"))
+      detectedContext = "web-development";  
 
-    console.log(`🌎 [Loader] Contexto detectado: ${pageContext}`);
+    window.CHATBOT_CONTEXT = detectedContext;
 
-    // Aguarda até o botão existir no DOM antes de carregar o script
+    // Aguarda botão do chatbot aparecer
     const waitForButton = setInterval(() => {
       const btn = document.getElementById("chatbot-btn");
       if (!btn) return;
@@ -43,13 +41,17 @@
       console.log("✅ [Loader] Botão do chatbot detectado. Carregando script principal...");
 
       const script = document.createElement("script");
-      script.src = "/static/js/chatbot.js";
+      script.src = "/static/js/chatbot.js?v=3";
       script.defer = true;
-      script.onload = () => console.log("🚀 [Loader] Script chatbot.js carregado e executado com sucesso!");
-      script.onerror = () => console.error("❌ [Loader] Erro ao carregar chatbot.js");
+
+      script.onload = () =>
+        console.log("🚀 [Loader] chatbot.js carregado e executado!");
+      script.onerror = () =>
+        console.error("❌ [Loader] Erro ao carregar chatbot.js");
+
       document.body.appendChild(script);
     }, 300);
   } catch (err) {
-    console.error("❌ [Loader] Erro ao carregar o chatbot:", err);
+    console.error("❌ [Loader] Erro ao carregar chatbot:", err);
   }
 })();

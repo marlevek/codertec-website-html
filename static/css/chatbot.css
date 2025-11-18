@@ -160,3 +160,19 @@
   background-color: #128C7E;
 }
 
+/* 🔹 Impede cursor pointer em mensagens comuns (user e bot) */
+.message-container {
+    cursor: default !important;
+}
+
+/* 🔹 Mensagens internas também não devem ter cursor pointer */
+.message {
+    cursor: default !important;
+}
+
+/* 🔹 Somente links ficam clicáveis */
+.message a,
+.bot-message a {
+    cursor: pointer !important;
+}
+

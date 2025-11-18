@@ -81,6 +81,24 @@
   <xhtml:link rel="alternate" hreflang="x-default" href="https://codertec.com.br/solucoes/websites/"/>
 </url>
 
+<url>
+  <loc>https://codertec.com.br/websites-em-curitiba/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+
+<url>
+  <loc>https://codertec.com.br/inteligencia-artificial-em-curitiba/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.88</priority>
+</url>
+
+<url>
+  <loc>https://codertec.com.br/automacao-empresarial-em-curitiba/</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.88</priority>
+</url>
+
   <!-- Páginas de agradecimento -->
   <url>
     <loc>https://codertec.com.br/obrigado.html</loc>
