@@ -529,3 +529,14 @@ img.shadow-sm:hover {
         width: 100%;
     }
 }
+
+
+.ct-header-es .menu a {
+    color: #fff !important;
+}
+
+.ct-header-es .logo a {
+    color: #fff !important;
+}
+
+

@@ -61,6 +61,7 @@
   <loc>https://codertec.com.br/solucoes/agentes-ia/</loc>
   <priority>0.80</priority>
   <xhtml:link rel="alternate" hreflang="pt-BR" href="https://codertec.com.br/solucoes/agentes-ia/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://codertec.com.br/solutions/ai-agents/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/soluciones/agentes-ia/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://codertec.com.br/solucoes/agentes-ia/"/>
 </url>
@@ -69,6 +70,7 @@
   <loc>https://codertec.com.br/solucoes/webapps/</loc>
   <priority>0.80</priority>
   <xhtml:link rel="alternate" hreflang="pt-BR" href="https://codertec.com.br/solucoes/webapps/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://codertec.com.br/solutions/webapps/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/soluciones/webapps/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://codertec.com.br/solucoes/webapps/"/>
 </url>
@@ -78,6 +80,7 @@
   <priority>0.80</priority>
   <xhtml:link rel="alternate" hreflang="pt-BR" href="https://codertec.com.br/solucoes/websites/"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://codertec.com.br/es/soluciones/websites/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://codertec.com.br/en/solutions/websites/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://codertec.com.br/solucoes/websites/"/>
 </url>
 

@@ -20,6 +20,8 @@
     <link rel="alternate" hreflang="es-PY" href="https://codertec.com.br/es/">
     <link rel="alternate" hreflang="en-PY" href="https://codertec.com.br/en/">
     <link rel="alternate" hreflang="x-default" href="https://codertec.com.br/">
+
+    <link rel="canonical" href="https://codertec.com.br/en/">
 </head>
 
 <body>
@@ -80,7 +82,8 @@
                             hidden growth opportunities within your data, and proactively <span
                                 style="font-weight: bold;">reduce risks.</span> Empower your decision-making with
                             confidence, not guesswork.
-                        <p class="text-center"><a href="/en/solutions/data-science.html" class="btn btn-primary">See a Live
+                        <p class="text-center"><a href="/en/solutions/data-science.html" class="btn btn-primary">See a
+                                Live
                                 Demo!</a></p>
                     </div>
                 </div>
@@ -93,7 +96,8 @@
                             intuitive interface. Monitor performance, pinpoint bottlenecks, and make <span
                                 style="font-weight: bold;">data-driven decisions</span> — no more complex spreadsheets
                             or lengthy reports.
-                        <p class="text-center"><a href="/en/solutions/dashboards.html" class="btn btn-primary">See a Live
+                        <p class="text-center"><a href="/en/solutions/dashboards.html" class="btn btn-primary">See a
+                                Live
                                 Demo!</a></p>
                     </div>
                 </div>
@@ -104,7 +108,8 @@
                             integration, and data management. Free up your team to focus on the strategic work that
                             <span style="font-weight: bold;">drives growth and innovation</span>.
                         </p>
-                        <p class="text-center"><a href="/en/solutions/process-automation.html" class="btn btn-primary">See a Live
+                        <p class="text-center"><a href="/en/solutions/process-automation.html"
+                                class="btn btn-primary">See a Live
                                 Demo!</a></p>
                     </div>
                 </div>
@@ -222,6 +227,20 @@
     <script src="/static/js/include_en.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/static/js/btn_topo.js"></script>
+
+    <script>document.addEventListener("DOMContentLoaded", () => {
+            if (window.location.hash) {
+                const el = document.querySelector(window.location.hash);
+                if (el) {
+                    setTimeout(() => {
+                        el.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }, 150);
+                }
+            }
+        });</script>
+
+
+
 </body>
 
 </html>

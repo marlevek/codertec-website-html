@@ -13,9 +13,12 @@
 
   function initChatbot() {
     const LANG = window.CHATBOT_LANG || "pt";
-    const CONTEXT = window.CHATBOT_CONTEXT || "general";
 
-    console.log("🌎 Idioma:", LANG, "| Contexto:", CONTEXT);
+    // 📌 Novo ➜ agora CHATBOT_CONTEXT é um objeto!
+    const CONTEXT = window.CHATBOT_CONTEXT?.pageContext || "general";
+    const CUSTOM_GREETING = window.CHATBOT_CONTEXT?.greeting || null;
+
+    console.log("🌎 Idioma:", LANG, "| Contexto:", CONTEXT, "| Custom greeting:", CUSTOM_GREETING);
 
     // ELEMENTOS
     const chatBtn = document.getElementById("chatbot-btn");
@@ -34,40 +37,60 @@
     const soundSend = new Audio("/static/sounds/send.mp3");
     const soundReceive = new Audio("/static/sounds/receive.mp3");
 
-    // GERAR SAUDAÇÃO AUTOMÁTICA
-    const GREET = LANG === "en"
-      ? {
-          ai: "Hello! 👋 Looking into AI solutions? Want help applying AI to your business?",
-          automation: "Hi! 👋 Checking automation? I can help you improve productivity!",
-          dashboards: "Hello! 👋 Want to learn how dashboards can help your business?",
-          "web-development": "Hi! 👋 I can help you build a modern website or system!",
-          general: "Hello! 👋 I'm CoderTec's virtual assistant. How can I help you today?"
-        }
-      : {
-          ai: "Olá! 👋 Quer saber como aplicar IA no seu negócio?",
-          automacao: "Oi! 👋 Quer automatizar processos e ganhar tempo?",
-          dashboards: "Olá! 👋 Quer transformar dados em decisões inteligentes?",
-          "desenvolvimento-web": "Oi! 👋 Precisa de um site moderno ou sistema web?",
-          geral: "Olá! 👋 Sou o assistente da CoderTec. Como posso ajudar hoje?"
-        };
+    // SAUDAÇÕES PT / EN
+    const GREET = {
+      en: {
+        ai: "Hello! 👋 Looking into AI solutions? Want help applying AI to your business?",
+        automation: "Hi! 👋 Checking automation? I can help you improve productivity!",
+        dashboards: "Hello! 👋 Want to learn how dashboards can help your business?",
+        "web-development": "Hi! 👋 I can help you build a modern website or system!",
+        general: "Hello! 👋 I'm CoderTec's virtual assistant. How can I help you today?"
+      },
+      pt: {
+        ai: "Olá! 👋 Quer saber como aplicar IA no seu negócio?",
+        automacao: "Oi! 👋 Quer automatizar processos e ganhar tempo?",
+        dashboards: "Olá! 👋 Quer transformar dados em decisões inteligentes?",
+        "web-development": "Oi! 👋 Precisa de um site moderno ou sistema web?",
+        general: "Olá! 👋 Sou o assistente da CoderTec. Como posso ajudar hoje?"
+      },
+      es: {
+        ai: "¡Hola! 👋 ¿Quieres saber cómo aplicar IA en tu negocio?",
+        automacao: "¡Hola! 👋 ¿Buscas automatizar procesos y ganar tiempo?",
+        dashboards: "¡Hola! 👋 ¿Quieres ver cómo los dashboards pueden ayudar a tu empresa?",
+        "web-development": "¡Hola! 👋 ¿Necesitas un sitio o sistema web moderno?",
+        general: "¡Hola! 👋 Soy el asistente virtual de CoderTec. ¿En qué puedo ayudarte hoy?"
+      }
+    };
 
-    // MENSAGENS DO FLUXO PT/EN
+    // FLUXO DE MENSAGENS
     const M = {
-      askName: LANG === "en"
-        ? "Before we start, may I know your name? 😊"
-        : "Antes de começarmos, posso saber seu nome? 😊",
+      askName:
+        LANG === "en"
+          ? "Before we start, may I know your name? 😊"
+          : LANG === "es"
+          ? "Antes de comenzar, ¿puedo saber tu nombre? 😊"
+          : "Antes de começarmos, posso saber seu nome? 😊",
 
-      askBusiness: name => LANG === "en"
-        ? `Nice to meet you, ${name}! 😄 What type of business do you have?`
-        : `Prazer, ${name}! 😄 Qual é o seu ramo de atuação?`,
+      askBusiness: name =>
+        LANG === "en"
+          ? `Nice to meet you, ${name}! 😄 What type of business do you have?`
+          : LANG === "es"
+          ? `¡Mucho gusto, ${name}! 😄 ¿En qué área trabajas?`
+          : `Prazer, ${name}! 😄 Qual é o seu ramo de atuação?`,
 
-      askService: business => LANG === "en"
-        ? `What would you like to build for your ${business}? A website, automation, or an AI solution?`
-        : `O que você gostaria de desenvolver para a sua ${business}? Um site, automação ou solução de IA?`,
+      askService: business =>
+        LANG === "en"
+          ? `What would you like to build for your ${business}? A website, automation, or an AI solution?`
+          : LANG === "es"
+          ? `¿Qué te gustaría desarrollar para tu ${business}? ¿Un sitio web, automatización o una solución de IA?`
+          : `O que você gostaria de desenvolver para a sua ${business}? Um site, automação ou solução de IA?`,
 
-      askContact: name => LANG === "en"
-        ? `All right, ${name}! If you want, I can guide you with more examples.`
-        : `Perfeito, ${name}! Posso te ajudar com mais detalhes ou exemplos, se quiser.`
+      askContact: name =>
+        LANG === "en"
+          ? `All right, ${name}! If you want, I can guide you with more examples.`
+          : LANG === "es"
+          ? `Perfecto, ${name}! Si quieres, puedo darte más ejemplos o ayudarte con ideas.`
+          : `Perfeito, ${name}! Posso te ajudar com mais detalhes ou exemplos, se quiser.`
     };
 
     //----------------------------------------------------------------
@@ -78,7 +101,15 @@
       chatWindow.style.display = visible ? "none" : "flex";
 
       if (!greeted) {
-        appendMessage(GREET[CONTEXT] || GREET.general, "bot");
+        if (CUSTOM_GREETING) {
+          appendMessage(CUSTOM_GREETING, "bot");
+        } else {
+          const greeting =
+            GREET[LANG][CONTEXT] ||
+            GREET[LANG].general ||
+            "Olá! 👋 Seja bem-vindo!";
+          appendMessage(greeting, "bot");
+        }
         greeted = true;
       }
     });
@@ -88,7 +119,7 @@
     });
 
     //----------------------------------------------------------------
-    // FLUXO PERSONALIZADO DO CHATBOT
+    // FLUXO PERSONALIZADO
     //----------------------------------------------------------------
     function handleCustomFlow(text) {
       const lower = text.toLowerCase();
@@ -114,34 +145,6 @@
       }
 
       if (step === "ask_service") {
-
-        if (LANG === "en") {
-          if (lower.includes("website")) {
-            appendMessage(`Great! 🚀 We can build a modern website for your ${businessType}.`, "bot");
-          } else if (lower.includes("automation")) {
-            appendMessage(`Awesome! 🤖 We can automate processes for your ${businessType}.`, "bot");
-          } else if (lower.includes("ai")) {
-            appendMessage(`Nice! 😎 We can create custom AI solutions for your ${businessType}.`, "bot");
-          } else {
-            appendMessage(`Got it! Tell me more about what you need for your ${businessType}.`, "bot");
-          }
-        } else {
-          if (lower.includes("site")) {
-            appendMessage(`Ótimo! 🚀 Podemos criar um site moderno para sua ${businessType}.`, "bot");
-          } else if (lower.includes("automação")) {
-            appendMessage(`Perfeito! 🤖 Podemos automatizar processos da sua ${businessType}.`, "bot");
-          } else if (lower.includes("ia")) {
-            appendMessage(`Show! 😎 Podemos criar soluções de IA para sua ${businessType}.`, "bot");
-          } else {
-            appendMessage(`Certo! Me conte mais sobre o que você precisa para sua ${businessType}.`, "bot");
-          }
-        }
-
-        step = "ask_contact";
-        return true;
-      }
-
-      if (step === "ask_contact") {
         appendMessage(M.askContact(userName), "bot");
         step = "done";
         return true;
@@ -170,13 +173,15 @@
       appendMessage(
         LANG === "en"
           ? "Let me think... 🤖"
+          : LANG === "es"
+          ? "Déjame pensar... 🤖"
           : "Deixa eu pensar... 🤖",
         "bot"
       );
     }
 
     //----------------------------------------------------------------
-    // CRIAR MENSAGEM NA TELA
+    // EXIBIR MENSAGEM
     //----------------------------------------------------------------
     function appendMessage(text, sender) {
       const wrap = document.createElement("div");
